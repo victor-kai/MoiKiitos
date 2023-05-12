@@ -1,12 +1,12 @@
 package com.align.web.controller;
 
-import com.align.Constants;
+import com.align.constant.Constants;
 import com.align.web.dto.UserDto;
 import com.align.web.dto.UserProfileDto;
 import com.align.persistence.entity.UserEntity;
 import com.align.service.AuthService;
 import com.align.service.UserService;
-import com.align.web.RestApiResponse;
+import com.align.web.response.RestApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

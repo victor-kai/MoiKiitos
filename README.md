@@ -11,7 +11,7 @@ Also provides the guidance of how to download, compile and run the codes.
 ![](src/main/resources/img/sequence.png)
 
 ## 3. Instructions to run this application(linux based system)
-### 3.1 build project
+### 3.1 build and run project
 preconditions: Git, JDK and Maven were installed in host machine
 1. in your working folder execute command: <br>
 ```git clone https://github.com/victor-kai/MoiKiitos.git && cd MoiKiitos```
@@ -20,7 +20,9 @@ preconditions: Git, JDK and Maven were installed in host machine
 3. execute command:<br>
 ```mvn spring-boot:run` or `cd target && java -jar moikiitos-1.0-SNAPSHOT.jar```
 
-### 3.2 Visit h2 database workbench: http://localhost:8001/h2-console
+### 3.2 UT coverage report can be checked from(open with browser): target/coverage-reports/jacoco-ui/index.html
+
+### 3.3 Visit h2 database workbench: http://localhost:8001/h2-console
 
 ## 4. API list
 | Function        | method | uri              |

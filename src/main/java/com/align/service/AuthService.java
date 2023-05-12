@@ -1,6 +1,6 @@
 package com.align.service;
 
-import com.align.Constants;
+import com.align.constant.Constants;
 import com.align.web.dto.UserProfileDto;
 import com.align.persistence.entity.UserEntity;
 import com.align.persistence.repository.UserRepository;

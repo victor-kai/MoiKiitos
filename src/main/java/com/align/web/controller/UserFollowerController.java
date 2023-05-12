@@ -2,7 +2,7 @@ package com.align.web.controller;
 
 import com.align.service.UserFollowerService;
 import com.align.service.UserService;
-import com.align.web.RestApiResponse;
+import com.align.web.response.RestApiResponse;
 import com.align.web.dto.UserFollowerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

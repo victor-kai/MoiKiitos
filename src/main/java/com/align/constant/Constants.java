@@ -1,4 +1,4 @@
-package com.align;
+package com.align.constant;
 
 public class Constants {
   public static final String mockedToken = "asf145612qtgkgakjk;l09219fs;a0";

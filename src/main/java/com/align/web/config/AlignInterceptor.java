@@ -1,7 +1,7 @@
 package com.align.web.config;
 
-import com.align.Constants;
-import com.align.web.RestApiResponse;
+import com.align.constant.Constants;
+import com.align.web.response.RestApiResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

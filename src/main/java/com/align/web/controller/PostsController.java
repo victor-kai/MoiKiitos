@@ -1,7 +1,7 @@
 package com.align.web.controller;
 
 import com.align.service.PostsService;
-import com.align.web.RestApiResponse;
+import com.align.web.response.RestApiResponse;
 import com.align.web.dto.PostsDto;
 import org.springframework.web.bind.annotation.*;
 

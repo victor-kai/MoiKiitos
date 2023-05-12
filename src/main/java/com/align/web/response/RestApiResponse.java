@@ -1,4 +1,4 @@
-package com.align.web;
+package com.align.web.response;
 
 import java.io.Serializable;
 import java.util.Objects;

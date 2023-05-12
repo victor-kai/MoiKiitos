@@ -1,6 +1,6 @@
 package com.align.web.exceptions.handler;
 
-import com.align.web.RestApiResponse;
+import com.align.web.response.RestApiResponse;
 import com.align.web.exceptions.CommonException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -62,7 +62,7 @@ public class UserService {
    * @param email email need to check if already registered
    * @return true if no register
    */
-  public boolean checkIfUserExists(String username, String email) {
+  private boolean checkIfUserExists(String username, String email) {
     UserEntity userEntity = userRepository.findByName(username);
     if (userEntity != null) {
       return true;

@@ -7,8 +7,8 @@ spring:
   datasource:
     username: admin
     password: admin
-#    url: jdbc:h2:mem:mydb
-    url: jdbc:h2:file:/home/victor/Documents/data/moikiitos
+    url: jdbc:h2:mem:mydb
+#    url: jdbc:h2:file:/home/victor/Documents/data/moikiitos
     driverClassName: org.h2.Driver
   h2:
     console.enabled: true

@@ -31,7 +31,7 @@ preconditions: Git, JDK and Maven were installed in host machine
 | unfollow        | DELETE | /moki/unfollow   |
 | list followers  | GET    | /moki/followers  |
 | list followings | GET    | /moki/followings |
-| find users      | GET    | /moki/findusers  |
+| find users      | GET    | /moki/users      |
 | feed list       | GET    | /moki/feedlist   |
 | post message    | POST   | /moki/post       |
 

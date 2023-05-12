@@ -1,8 +1,7 @@
 package service;
 
-import com.align.dto.UserProfileDto;
+import com.align.web.dto.UserProfileDto;
 import com.align.persistence.entity.UserEntity;
-import com.align.persistence.repository.UserRepository;
 import com.align.service.AuthService;
 import com.align.service.UserService;
 import org.junit.jupiter.api.Assertions;

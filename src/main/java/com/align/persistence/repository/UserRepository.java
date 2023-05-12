@@ -13,6 +13,9 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
   @Query(value = "select * from user where name = :usernameOrEmail or email = :usernameOrEmail and password = :password", nativeQuery = true)
   UserEntity findByNameOrEmailAndPassword(String usernameOrEmail, String password);
 
+  @Query(value = "select * from user where name like concat('%',:usernameOrEmail,'%') or email = :usernameOrEmail", nativeQuery = true)
+  UserEntity findByNameOrEmail(String usernameOrEmail);
+
   UserEntity findByName(String username);
 
   UserEntity findByEmail(String email);

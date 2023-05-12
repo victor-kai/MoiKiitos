@@ -4,6 +4,7 @@ import com.align.persistence.entity.UserEntity;
 import com.align.persistence.entity.UserFollowerEntity;
 import com.align.persistence.repository.UserFollowerRepository;
 import com.align.persistence.repository.UserRepository;
+import com.align.web.dto.UserFollowerDto;
 import com.align.web.exceptions.CommonException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,17 +12,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserFollowerService {
 
   @Autowired
-  private UserRepository userRepository;
+  UserRepository userRepository;
 
   @Autowired
-  private UserFollowerRepository userFollowerRepository;
+  UserFollowerRepository userFollowerRepository;
 
   private static final Logger LOG = LoggerFactory.getLogger(UserFollowerService.class);
+
+  /**
+   * Search user by name or email
+   *
+   * @param searchNameOrEmail user name or email used to search for
+   * @return user name and email
+   */
+  public UserFollowerDto getUser(String searchNameOrEmail) {
+    UserEntity user = userRepository.findByNameOrEmail(searchNameOrEmail);
+    UserFollowerDto dto = new UserFollowerDto();
+    dto.setUsername(user.getName());
+    dto.setUserEmail(user.getEmail());
+    dto.setUserId(user.getId());
+    return dto;
+  }
 
   /**
    * follower other user
@@ -57,5 +75,29 @@ public class UserFollowerService {
 
   public boolean userFollowerExists(String username, String follower) {
     return userFollowerRepository.findByUsernameAndFollowerName(username, follower) != null;
+  }
+
+  /**
+   * Get all users that given username followed.
+   * So, generally, this is for finding who I was followed from web page.
+   *
+   * @param username user name
+   * @return list of following users' name and email
+   */
+  public List<UserFollowerDto> getFollowedUsers(String username) {
+    return userFollowerRepository.findByFollowerName(username).stream()
+            .map(uf -> UserFollowerEntity.toFollowedUserDto(uf)).collect(Collectors.toList());
+  }
+
+  /**
+   * Get all users that followed given username.
+   * So, this is for finding who followed me from web page.
+   *
+   * @param username login username
+   * @return list of followers' name and email
+   */
+  public List<UserFollowerDto> getFollowingUsers(String username) {
+    return userFollowerRepository.findByUsername(username).stream()
+            .map(uf -> UserFollowerEntity.toUserFollowingUserDto(uf)).collect(Collectors.toList());
   }
 }

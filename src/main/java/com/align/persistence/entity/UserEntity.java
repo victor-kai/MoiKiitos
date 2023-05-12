@@ -1,7 +1,7 @@
 package com.align.persistence.entity;
 
-import com.align.dto.UserDto;
-import com.align.dto.UserProfileDto;
+import com.align.web.dto.UserDto;
+import com.align.web.dto.UserProfileDto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

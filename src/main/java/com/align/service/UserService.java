@@ -1,10 +1,9 @@
 package com.align.service;
 
-import com.align.dto.UserDto;
+import com.align.web.dto.UserDto;
 import com.align.persistence.entity.UserEntity;
 import com.align.persistence.repository.UserRepository;
 import com.align.utils.AlgorithmUtil;
-import com.align.web.RestApiResponse;
 import com.align.web.exceptions.CommonException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

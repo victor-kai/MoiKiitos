@@ -1,5 +1,7 @@
 package com.align.persistence.entity;
 
+import com.align.web.dto.UserFollowerDto;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -91,5 +93,23 @@ public class UserFollowerEntity implements Serializable {
   @Override
   public int hashCode() {
     return Objects.hash(id, username, userEmail, followerName, followerEmail);
+  }
+
+  public static UserFollowerDto toUserFollowingUserDto(UserFollowerEntity entity) {
+    UserFollowerDto dto = new UserFollowerDto();
+    if (entity != null) {
+      dto.setUsername(entity.getFollowerName());
+      dto.setUserEmail(entity.getFollowerEmail());
+    }
+    return dto;
+  }
+
+  public static UserFollowerDto toFollowedUserDto(UserFollowerEntity entity) {
+    UserFollowerDto dto = new UserFollowerDto();
+    if (entity != null) {
+      dto.setUsername(entity.getUsername());
+      dto.setUserEmail(entity.getUserEmail());
+    }
+    return dto;
   }
 }

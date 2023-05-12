@@ -1,7 +1,7 @@
 package com.align.service;
 
 import com.align.Constants;
-import com.align.dto.UserProfileDto;
+import com.align.web.dto.UserProfileDto;
 import com.align.persistence.entity.UserEntity;
 import com.align.persistence.repository.UserRepository;
 import com.align.web.exceptions.CommonException;

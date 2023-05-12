@@ -1,4 +1,4 @@
-package com.align.dto;
+package com.align.web.dto;
 
 import java.util.Objects;
 

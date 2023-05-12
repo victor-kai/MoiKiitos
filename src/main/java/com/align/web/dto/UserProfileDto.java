@@ -1,4 +1,4 @@
-package com.align.dto;
+package com.align.web.dto;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,11 +1,10 @@
 package com.align.persistence.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.align.web.dto.PostsDto;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.Objects;
 
 @Entity(name = "posts")
@@ -25,13 +24,17 @@ public class PostsEntity implements Serializable {
   @Column
   private String message;
 
+  @Transient
+  private Date datetime;
+
   public PostsEntity() {}
 
-  public PostsEntity(Long id, Long posterId, String posterName, String message) {
+  public PostsEntity(Long id, Long posterId, String posterName, String message, Date datetime) {
     this.id = id;
     this.posterId = posterId;
     this.posterName = posterName;
     this.message = message;
+    this.datetime = datetime;
   }
 
   public Long getId() {
@@ -77,5 +80,21 @@ public class PostsEntity implements Serializable {
   @Override
   public int hashCode() {
     return Objects.hash(id, posterId, posterName, message);
+  }
+
+  public static PostsEntity fromDto(PostsDto dto) {
+    PostsEntity entity = new PostsEntity();
+    entity.setPosterId(dto.getPosterId());
+    entity.setPosterName(dto.getPosterName());
+    entity.setMessage(dto.getMessage());
+    return entity;
+  }
+
+  public static PostsDto toDto(PostsEntity post) {
+    PostsDto postsDto = new PostsDto();
+    postsDto.setPosterId(post.getPosterId());
+    postsDto.setPosterName(post.getPosterName());
+    postsDto.setMessage(post.getMessage());
+    return postsDto;
   }
 }

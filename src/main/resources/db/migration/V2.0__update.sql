@@ -1,1 +1,0 @@
--- ALERT TABLE posts ADD COLUMN post_datetime timestamp;

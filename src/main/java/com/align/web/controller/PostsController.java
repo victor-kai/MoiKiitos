@@ -5,6 +5,7 @@ import com.align.web.RestApiResponse;
 import com.align.web.dto.PostsDto;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,7 @@ public class PostsController {
     }
 
     @PostMapping("/post")
-    public RestApiResponse<Object> posts(@RequestBody PostsDto posts) {
+    public RestApiResponse<Object> posts(@RequestBody @Valid PostsDto posts) {
         postsService.post(posts);
         return new RestApiResponse<>(null, "Message post successful");
     }

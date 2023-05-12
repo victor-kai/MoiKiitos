@@ -1,11 +1,18 @@
 package com.align.web.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class PostsDto implements Serializable {
+    @NotNull
     private Long posterId;
+
+    @NotEmpty
     private String posterName;
+
+    @NotEmpty
     private String message;
 
     public PostsDto(){}

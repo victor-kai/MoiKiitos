@@ -1,10 +1,20 @@
 package com.align.web.dto;
 
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class UserDto {
-  private String name;
+@Validated
+public class UserDto implements Serializable {
+  @NotEmpty
   private String email;
+
+  @NotEmpty
+  private String name;
+
+  @NotEmpty
   private String password;
 
   public UserDto() {}

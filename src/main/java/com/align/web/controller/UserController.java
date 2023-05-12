@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 public class UserController {
   @Autowired
@@ -29,7 +31,7 @@ public class UserController {
 
   @PostMapping("/register")
   @ResponseStatus(HttpStatus.OK)
-  public RestApiResponse<UserDto> register(@RequestBody UserDto user) {
+  public RestApiResponse<UserDto> register(@RequestBody @Valid UserDto user) {
     UserEntity userEntity = userService.register(user);
     return new RestApiResponse<>(UserEntity.toDto(userEntity), Constants.REGISTRATION_SUCCEED);
   }

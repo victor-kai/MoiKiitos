@@ -4,6 +4,7 @@ import com.align.constant.Constants;
 import com.align.service.PostsService;
 import com.align.web.response.RestApiResponse;
 import com.align.web.dto.PostsDto;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,12 +21,14 @@ public class PostsController {
     }
 
     @PostMapping("/post")
+    @ResponseStatus(HttpStatus.OK)
     public RestApiResponse<Object> posts(@RequestBody @Valid PostsDto posts) {
         postsService.post(posts);
         return new RestApiResponse<>(null, Constants.POST_SUCCEED);
     }
 
     @GetMapping("/feedlist")
+    @ResponseStatus(HttpStatus.OK)
     public RestApiResponse<List<PostsDto>> listPosts(@RequestParam("username") String username) {
         return new RestApiResponse<>(postsService.getPosts(username));
     }

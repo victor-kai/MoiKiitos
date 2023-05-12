@@ -1,5 +1,6 @@
 server:
   port: 8001
+
 spring:
   application:
     name: MoiKiitos
@@ -20,3 +21,10 @@ spring:
     baseline-on-migrate: true
     baseline-version: 1.0
     table: schema_version
+
+
+springdoc:
+  api-docs:
+    path: "/api-docs"
+  swagger-ui:
+    operationsSorter: method

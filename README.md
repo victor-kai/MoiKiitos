@@ -37,6 +37,8 @@ preconditions: Git, JDK and Maven were installed in host machine
 | feed list       | GET    | /moki/feedlist   |
 | post message    | POST   | /moki/post       |
 
+for detailed APIs information, visit: http://localhost:8001/swagger-ui/index.html 
+
 ## Note: When testing those APIs, token should be wrapped to request header
 For security reason, engaged the token verification logic,
 Due to limited time not implemented the jwt token generation and validation logic.<br>

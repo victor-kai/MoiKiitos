@@ -6,9 +6,6 @@ import com.align.persistence.repository.UserFollowerRepository;
 import com.align.persistence.repository.UserRepository;
 import com.align.web.dto.UserFollowerDto;
 import com.align.web.exceptions.CommonException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -18,13 +15,14 @@ import java.util.stream.Collectors;
 @Service
 public class UserFollowerService {
 
-  @Autowired
-  UserRepository userRepository;
+  private final UserRepository userRepository;
 
-  @Autowired
-  UserFollowerRepository userFollowerRepository;
+  private final UserFollowerRepository userFollowerRepository;
 
-  private static final Logger LOG = LoggerFactory.getLogger(UserFollowerService.class);
+  public UserFollowerService(UserRepository userRepository, UserFollowerRepository userFollowerRepository) {
+    this.userRepository = userRepository;
+    this.userFollowerRepository = userFollowerRepository;
+  }
 
   /**
    * Search user by name or email

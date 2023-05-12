@@ -14,10 +14,13 @@ import javax.transaction.Transactional;
 
 @Service
 public class UserService {
-  @Autowired
-  private UserRepository userRepository;
+  private final UserRepository userRepository;
 
   private final Logger LOG = LoggerFactory.getLogger(UserService.class);
+
+  public UserService(UserRepository userRepository) {
+    this.userRepository = userRepository;
+  }
 
   /**
    * check user login credential

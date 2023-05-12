@@ -1,19 +1,19 @@
 package com.align.service;
 
 import com.align.constant.Constants;
-import com.align.web.dto.UserProfileDto;
 import com.align.persistence.entity.UserEntity;
-import com.align.persistence.repository.UserRepository;
+import com.align.web.dto.UserProfileDto;
 import com.align.web.exceptions.CommonException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
-  @Autowired
-  private UserRepository userRepository;
-  @Autowired
-  private UserService userService;
+
+  private final UserService userService;
+
+  public AuthService(UserService userService) {
+    this.userService = userService;
+  }
 
   /**
    * Check username and password from register history, for every legal login return the authorized jwt token.

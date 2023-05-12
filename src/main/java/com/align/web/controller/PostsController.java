@@ -1,5 +1,6 @@
 package com.align.web.controller;
 
+import com.align.constant.Constants;
 import com.align.service.PostsService;
 import com.align.web.response.RestApiResponse;
 import com.align.web.dto.PostsDto;
@@ -21,7 +22,7 @@ public class PostsController {
     @PostMapping("/post")
     public RestApiResponse<Object> posts(@RequestBody @Valid PostsDto posts) {
         postsService.post(posts);
-        return new RestApiResponse<>(null, "Message post successful");
+        return new RestApiResponse<>(null, Constants.POST_SUCCEED);
     }
 
     @GetMapping("/feedlist")

@@ -2,9 +2,11 @@ package utils;
 
 import com.align.persistence.entity.PostsEntity;
 import com.align.persistence.entity.UserEntity;
+import com.align.persistence.entity.UserFollowerEntity;
 import com.align.web.dto.PostsDto;
 import com.align.web.dto.UserDto;
 import com.align.web.dto.UserFollowerDto;
+import com.align.web.dto.UserProfileDto;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -54,5 +56,25 @@ public class TestUtil {
     u.setUserEmail("email");
     list.add(u);
     return list;
+  }
+
+  public static List<UserFollowerEntity> mockUserFollowerEntities() {
+    List<UserFollowerEntity> list = new ArrayList<>();
+    UserFollowerEntity u = new UserFollowerEntity();
+    u.setUsername("jack");
+    u.setUserEmail("email");
+    u.setFollowerName("nick");
+    u.setUserEmail("email");
+    list.add(u);
+    return list;
+  }
+
+  public static UserProfileDto mockUserProfileDto() {
+    UserProfileDto user = new UserProfileDto();
+    user.setId(1L);
+    user.setName("admin");
+    user.setEmail("email");
+    user.setToken("token");
+    return user;
   }
 }

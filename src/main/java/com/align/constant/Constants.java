@@ -8,4 +8,6 @@ public class Constants {
   public static final String OK = "OK";
   public static final String REGISTRATION_SUCCEED = "Registration successful";
 
+  public static final String POST_SUCCEED = "Message post successful";
+
 }

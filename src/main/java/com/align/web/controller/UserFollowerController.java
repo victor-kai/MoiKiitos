@@ -13,11 +13,14 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/moki")
 public class UserFollowerController {
-  @Autowired
-  private UserService userService;
+  private final UserService userService;
 
-  @Autowired
-  private UserFollowerService userFollowerService;
+  private final UserFollowerService userFollowerService;
+
+  public UserFollowerController(UserService userService, UserFollowerService userFollowerService) {
+    this.userService = userService;
+    this.userFollowerService = userFollowerService;
+  }
 
   @GetMapping("/users")
   @ResponseStatus(HttpStatus.OK)
@@ -33,7 +36,7 @@ public class UserFollowerController {
       return new RestApiResponse<>(String.format("you have followed %s already", username));
     }
     userFollowerService.follow(username, follower);
-    return new RestApiResponse<>(String.format("followed %s %s", username, "successful"));
+    return new RestApiResponse<>(null, String.format("followed %s %s", username, "successful"));
   }
 
   @DeleteMapping("/unfollow")
@@ -41,7 +44,7 @@ public class UserFollowerController {
   public RestApiResponse<Object> unfollow(@RequestParam(name = "watchUser") String username,
                                           @RequestParam(name = "loginUser") String follower) {
     userFollowerService.unfollow(username, follower);
-    return new RestApiResponse<>("unfollow successfully");
+    return new RestApiResponse<>(null, "unfollow successfully");
   }
 
   @GetMapping("/followers")
